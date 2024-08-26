@@ -1,0 +1,18 @@
+@mixin header-container {
+  header {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $pale_yellow;
+  }
+
+  img {
+    height: 80px;
+  }
+
+  .navs {
+    display: flex;
+    gap: 20px;
+  }
+}
