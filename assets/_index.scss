@@ -1,0 +1,45 @@
+@import "./components/layout/header";
+@import "./components/layout/footer";
+@import "./components/landing/main";
+@import "./components/landing/info";
+@import "./components/landing/receipt";
+@import "./components/landing/category";
+@import "./components/detailed/receiptCard";
+@import "./themes";
+@import "./general/container";
+@import "./buttons/lightButton";
+
+@mixin header {
+  @include container;
+  @include header-container;
+}
+
+@mixin footer {
+  @include container;
+  @include footer-container;
+}
+
+@mixin main {
+  @include container;
+  @include main-container;
+}
+
+@mixin info {
+  @include container;
+  @include info-container;
+}
+
+@mixin receipt {
+  @include container;
+  @include receipt-container;
+}
+
+@mixin receipt-card {
+  @include receipt-card-container;
+}
+
+@mixin category {
+  @include container;
+  @include light-button;
+  @include category-container;
+}

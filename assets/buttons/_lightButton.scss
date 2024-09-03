@@ -1,0 +1,6 @@
+@mixin light-button {
+  button,
+  a {
+    background-color: $paler_yellow;
+  }
+}

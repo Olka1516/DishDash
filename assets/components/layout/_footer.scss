@@ -1,0 +1,17 @@
+@mixin footer-container {
+  .container {
+    padding-block: 30px;
+    background-color: $pale_yellow;
+    text-align: center;
+  }
+
+  .footer-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    & img {
+      width: 24px;
+    }
+  }
+}

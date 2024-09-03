@@ -1,0 +1,30 @@
+@mixin receipt-container {
+  .container {
+    padding-block: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .receipts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    @media screen and (max-width: 1512px) {
+      gap: 20px;
+    }
+    @media screen and (max-width: 1024px) {
+      justify-content: center;
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .receipts-empty {
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

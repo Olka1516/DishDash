@@ -1,0 +1,38 @@
+@mixin main-container {
+  .container {
+    position: relative;
+    height: calc(100vh - 80px);
+    display: grid;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $paler_yellow;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    @media screen and (max-width: 1024px) {
+      display: flex;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .main-texts {
+    z-index: 1;
+  }
+
+  .main-images {
+    position: relative;
+    & :last-child {
+      position: absolute;
+      bottom: -40px;
+      right: -10px;
+    }
+    @media screen and (max-width: 1024px) {
+      position: absolute;
+      opacity: 0.6;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
