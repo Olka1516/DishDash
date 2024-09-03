@@ -12,6 +12,7 @@
 @import "./general/container";
 @import "./buttons/lightButton";
 @import "./pages/category";
+@import "./pages/detailed";
 
 @mixin header {
   @include container;
@@ -61,4 +62,9 @@
 @mixin filter {
   @include inputs-container;
   @include filter-container;
+}
+
+@mixin detailed {
+  @include container;
+  @include detailed-container;
 }
