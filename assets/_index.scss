@@ -5,9 +5,13 @@
 @import "./components/landing/receipt";
 @import "./components/landing/category";
 @import "./components/detailed/receiptCard";
+@import "./components/inputs/general";
+@import "./components/inputs/search";
+@import "./components/inputs/filter";
 @import "./themes";
 @import "./general/container";
 @import "./buttons/lightButton";
+@import "./pages/category";
 
 @mixin header {
   @include container;
@@ -42,4 +46,19 @@
   @include container;
   @include light-button;
   @include category-container;
+}
+
+@mixin category-page {
+  @include container;
+  @include category-page-container;
+}
+
+@mixin search {
+  @include inputs-container;
+  @include search-container;
+}
+
+@mixin filter {
+  @include inputs-container;
+  @include filter-container;
 }

@@ -1,0 +1,26 @@
+@mixin category-page-container {
+  .container {
+    background-color: $light_yellow;
+  }
+
+  .category-empty {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .category {
+    padding-block: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    @media screen and (max-width: 1512px) {
+      gap: 20px;
+    }
+    @media screen and (max-width: 1024px) {
+      justify-content: center;
+      grid-template-columns: 1fr;
+    }
+  }
+}

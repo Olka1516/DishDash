@@ -1,0 +1,27 @@
+@mixin inputs-container {
+  input {
+    width: 100%;
+    background-color: $paler_yellow;
+    border: none;
+    outline: none;
+    padding: 10px 10px 10px 40px;
+    font-weight: 500;
+    font-size: 1em;
+  }
+
+  i {
+    position: absolute;
+    left: 0;
+    margin: 6px 11px;
+    padding: 0 2px;
+    background-color: transparent;
+    transition: 0.5s;
+    pointer-events: none;
+  }
+
+  input:focus ~ i,
+  input:valid ~ i {
+    transform: translateY(-19px);
+    font-size: 1.3em;
+  }
+}
