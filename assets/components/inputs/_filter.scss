@@ -1,0 +1,88 @@
+@mixin filter-container {
+  .filter {
+    display: flex;
+    position: relative;
+    background-color: $paler_yellow;
+    padding: 7px;
+    width: 100%;
+    cursor: pointer;
+    height: 38.4px;
+  }
+
+  .filter-open {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 42px;
+    width: 160%;
+    box-shadow: $shadow_grey 0px 2px 8px 0px;
+    background-color: $lighter_yellow;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    height: 300px;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      width: 10px;
+      background-color: #fff;
+    }
+    &::-webkit-scrollbar-thumb {
+      height: 60px;
+      background-color: #ccc;
+      border-radius: 11px;
+    }
+  }
+
+  i {
+    top: 0;
+    left: 25px;
+  }
+
+  h3 {
+    padding-left: 15px;
+    background-color: $paler_yellow;
+  }
+
+  .selected-product {
+    width: 100%;
+    max-width: 600px;
+    padding-left: 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: flex;
+    gap: 16px;
+    height: 25px;
+    white-space: nowrap;
+    &::-webkit-scrollbar {
+      height: 0.1px;
+      background-color: #fff;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      height: 60px;
+      background-color: #ccc;
+      border-radius: 11px;
+    }
+  }
+
+  span {
+    display: flex;
+    gap: 20px;
+    padding-inline: 16px 6px;
+    background-color: $lighter_yellow;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    background-color: transparent;
+    height: 100%;
+    width: 16px;
+    & img {
+      height: 16px;
+      width: 16px;
+    }
+  }
+}

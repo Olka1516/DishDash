@@ -1,0 +1,15 @@
+@mixin search-container {
+  .field {
+    position: relative;
+  }
+
+  img {
+    position: absolute;
+    top: 20%;
+    left: 5px;
+  }
+
+  i {
+    left: 25px;
+  }
+}
