@@ -1,0 +1,17 @@
+@mixin add-receipt-container {
+  .container {
+    height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .p-editor {
+    width: 100%;
+    & .ql-container {
+      height: 600px;
+    }
+  }
+}
