@@ -12,6 +12,8 @@
 @import "./general/container";
 @import "./buttons/lightButton";
 @import "./pages/category";
+@import "./pages/detailed";
+@import "./pages/add-receipt";
 
 @mixin header {
   @include container;
@@ -61,4 +63,14 @@
 @mixin filter {
   @include inputs-container;
   @include filter-container;
+}
+
+@mixin detailed {
+  @include container;
+  @include detailed-container;
+}
+
+@mixin add-receipt {
+  @include add-receipt-container;
+  @include container;
 }
