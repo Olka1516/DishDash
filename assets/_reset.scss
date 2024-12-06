@@ -31,20 +31,7 @@ input {
   font-family: "Italianno", "Great Vibes", cursive;
   font-weight: 500;
   font-style: normal;
-}
-
-i {
-  font-family: "Italianno", "Great Vibes", cursive;
-  font-size: 25px;
-  font-weight: 400;
-  font-style: normal;
-}
-
-textarea {
-  font-family: "Italianno", "Great Vibes", cursive;
-  font-style: normal;
-  outline: none;
-  font-weight: 500;
+  font-size: 22px !important;
 }
 
 span {
@@ -72,8 +59,7 @@ a {
   }
 }
 
-button:focus,
-.button:focus {
+button:focus {
   outline: none;
 }
 
@@ -142,4 +128,16 @@ li {
     width: auto;
     height: auto;
   }
+}
+
+.p-inputtext,
+.p-password {
+  width: 100%;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.p-floatlabel:has(input:focus) label,
+.p-floatlabel:has(.p-inputwrapper-filled) label,
+.p-floatlabel:has(input.p-filled) label {
+  font-size: 20px !important;
 }

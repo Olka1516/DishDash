@@ -1,0 +1,10 @@
+@mixin error {
+  .error {
+    position: absolute;
+    top: 42px;
+    left: 10px;
+  }
+  .p-error {
+    color: $red;
+  }
+}

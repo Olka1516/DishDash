@@ -8,12 +8,14 @@
 @import "./components/inputs/general";
 @import "./components/inputs/search";
 @import "./components/inputs/filter";
+@import "./components/errors/baseError";
 @import "./themes";
 @import "./general/container";
 @import "./buttons/lightButton";
 @import "./pages/category";
 @import "./pages/detailed";
 @import "./pages/add-receipt";
+@import "./pages/signIn";
 
 @mixin header {
   @include container;
@@ -72,5 +74,10 @@
 
 @mixin add-receipt {
   @include add-receipt-container;
+  @include container;
+}
+
+@mixin sign-in {
+  @include sign-in-container;
   @include container;
 }
