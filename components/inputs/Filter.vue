@@ -23,6 +23,10 @@ import { data } from "~/mocks/products";
 
 const props = defineProps<{ modelValue: string[] }>();
 
+const emit = defineEmits<{
+  (e: "update:modelValue", val: string[]): void;
+}>();
+
 const filterStatus = ref(false);
 const selectedProducts = ref<string[]>([]);
 selectedProducts.value = props.modelValue;
@@ -42,6 +46,7 @@ const deleteFilter = (event: Event, product: string) => {
   selectedProducts.value = selectedProducts.value.filter(
     (item) => item !== product
   );
+  emit("update:modelValue", selectedProducts.value);
 };
 </script>
 

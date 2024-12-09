@@ -1,17 +1,18 @@
 @mixin category-page-container {
   .container {
     background-color: $light_yellow;
+    min-height: 72vh;
   }
 
   .category-empty {
-    height: 70vh;
+    height: 60vh;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
   .category {
-    padding-block: 40px;
+    padding-block: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 50px;
