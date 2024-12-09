@@ -21,8 +21,11 @@
 <script setup lang="ts">
 import { data } from "~/mocks/products";
 
+const props = defineProps<{ modelValue: string[] }>();
+
 const filterStatus = ref(false);
 const selectedProducts = ref<string[]>([]);
+selectedProducts.value = props.modelValue;
 
 const changeStatus = () => {
   filterStatus.value = !filterStatus.value;
@@ -36,7 +39,9 @@ const selectProduct = (product: string) => {
 
 const deleteFilter = (event: Event, product: string) => {
   event.stopPropagation();
-  selectedProducts.value = selectedProducts.value.filter(item => item !== product);
+  selectedProducts.value = selectedProducts.value.filter(
+    (item) => item !== product
+  );
 };
 </script>
 

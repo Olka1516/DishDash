@@ -49,18 +49,19 @@
 </template>
 
 <script setup lang="ts">
-import { collection, getDocs, type DocumentData } from "firebase/firestore";
 import { LINK_TEMPLATES } from "~/constants";
+import { useReceiptsStore } from "~/store/receipts";
+import type { IReceipt } from "~/types";
 
-const { $db } = useNuxtApp();
+const store = useReceiptsStore();
 const loading = ref(true);
-const products = ref<{}[]>([]);
+const products = ref<IReceipt[]>([]);
 
 onMounted(async () => {
-  const data = await getDocs(collection($db, "requests"));
-  data.forEach((receipt: DocumentData) => {
-    products.value.push(receipt.data());
-  });
+  if (!store.receipts.length) {
+    await store.getReceipts("requests");
+  }
+  products.value = store.receipts;
   loading.value = false;
 });
 </script>

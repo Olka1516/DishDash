@@ -5,48 +5,32 @@
     </div>
     <div v-else class="receipts">
       <DetailedReceiptCard
-        v-for="item in data"
+        v-for="item in data.slice(0, 4)"
         :title="item.title"
         :description="item.description"
         :id="item.id"
         :image="item.image"
       />
     </div>
-    <button>More</button>
+    <NuxtLink :to="LINK_TEMPLATES.CATEGORY('')">More</NuxtLink>
   </div>
 </template>
 
 <script setup lang="ts">
-const data = [
-  {
-    title: "Lorem Ipsum",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum industry's..., Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum industry's...",
-    id: "1",
-    image: "/temp1.png",
-  },
-  {
-    title: "Lorem Ipsum",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum industry's...",
-    id: "1",
-    image: "/temp1.png",
-  },
-  {
-    title: "Lorem Ipsum",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum industry's...",
-    id: "1",
-    image: "/temp1.png",
-  },
-  {
-    title: "Lorem Ipsum",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum industry's...",
-    id: "1",
-    image: "/temp1.png",
-  },
-];
+import { NuxtLink } from "#components";
+import { LINK_TEMPLATES } from "~/constants";
+import { useReceiptsStore } from "~/store/receipts";
+import type { IReceipt } from "~/types";
+
+const store = useReceiptsStore();
+const data = ref<IReceipt[]>([]);
+
+onMounted(async () => {
+  if (!store.receipts.length) {
+    await store.getReceipts("receipts");
+  }
+  data.value = store.receipts;
+});
 </script>
 
 <style scoped lang="scss">

@@ -53,6 +53,10 @@
     }
   }
 
+  .light-button {
+    text-transform: capitalize;
+  }
+
   .active {
     background-color: $yellow;
     box-shadow: $shadow_grey 0px 2px 8px 0px;

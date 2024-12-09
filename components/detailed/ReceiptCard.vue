@@ -10,12 +10,16 @@
     </div>
     <div class="card-subtitle">
       <p>{{ description }}</p>
-      <NuxtLink to="">Detailed</NuxtLink>
+      <NuxtLink :to="LINK_TEMPLATES.DETAILED(id, 'receipts')"
+        >Detailed</NuxtLink
+      >
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { LINK_TEMPLATES } from "~/constants";
+
 defineProps<{
   id: string;
   image: string;
