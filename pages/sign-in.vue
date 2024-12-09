@@ -27,6 +27,10 @@ import {
   setPersistence,
   signInWithEmailAndPassword,
 } from "firebase/auth";
+import { useAuthStore } from "~/store/auth";
+
+
+const { authenticateUser } = useAuthStore();
 
 definePageMeta({
   layout: "auth",
@@ -53,6 +57,8 @@ const signIn = async () => {
   try {
     await setPersistence($auth, browserSessionPersistence);
     await signInWithEmailAndPassword($auth, user.email, user.password);
+    authenticateUser();
+    navigateTo("/admin");
   } catch (err: any) {
     error.value = err.message;
   }

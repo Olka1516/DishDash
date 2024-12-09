@@ -24,7 +24,7 @@ export default defineNuxtConfig({
       appId: process.env.FIREBASE_APP_ID,
     },
   },
-  modules: ["@primevue/nuxt-module", "nuxt-vuefire"],
+  modules: ["@primevue/nuxt-module", "nuxt-vuefire", "@pinia/nuxt"],
 
   css: ["primeicons/primeicons.css"],
   primevue: {
