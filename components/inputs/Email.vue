@@ -11,7 +11,7 @@
         "
         :invalid="isNameInvalid()"
       />
-      <label for="on_label">Name</label>
+      <label for="on_label">Email</label>
     </FloatLabel>
     <InputIcon class="pi pi-user" />
   </IconField>

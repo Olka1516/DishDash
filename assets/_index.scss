@@ -9,6 +9,7 @@
 @import "./components/inputs/search";
 @import "./components/inputs/filter";
 @import "./components/errors/baseError";
+@import "./components/admin/table";
 @import "./themes";
 @import "./general/container";
 @import "./buttons/lightButton";
@@ -16,6 +17,7 @@
 @import "./pages/detailed";
 @import "./pages/add-receipt";
 @import "./pages/signIn";
+@import "./pages/admin";
 
 @mixin header {
   @include container;
@@ -80,4 +82,13 @@
 @mixin sign-in {
   @include sign-in-container;
   @include container;
+}
+
+@mixin admin {
+  @include container;
+  @include admin-container;
+}
+
+@mixin admin-table {
+  @include admin-table-container;
 }
