@@ -12,10 +12,6 @@
 import { signOut } from "firebase/auth";
 import { useAuthStore } from "~/store/auth";
 
-definePageMeta({
-  middleware: "auth",
-});
-
 const { $auth } = useNuxtApp();
 const { logUserOut } = useAuthStore();
 

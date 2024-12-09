@@ -9,12 +9,13 @@
 import { addDoc, updateDoc } from "firebase/firestore";
 
 /* 
-<p>Title:</p><p>Details:</p><p>Ingredients:</p><ol><li data-list="ordered"><span class="ql-ui" contenteditable="false"></span><br></li></ol>
+TODO: 
 */
 const value = ref(
   '<p>Title:</p><p>Details:</p><p>Ingredients:</p><ol><li data-list="ordered"><span class="ql-ui" contenteditable="false"></span><br></li></ol>'
 );
-const { $receiptsRef } = useNuxtApp();
+const { $receiptsRef, $requestsRef } = useNuxtApp();
+const query = useRoute().query;
 
 const submit = async () => {
   try {
@@ -39,7 +40,8 @@ const submit = async () => {
     );
 
     const image = doc.querySelector("img")?.getAttribute("src");
-    const docRef = await addDoc($receiptsRef, {
+    const dataRef = query.data === "receipts" ? $receiptsRef : $requestsRef;
+    const docRef = await addDoc(dataRef, {
       title,
       description,
       image,

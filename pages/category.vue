@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div v-if="!data.length" class="category-empty">
-      <h1>Ти не маєш рецептів</h1>
+      <h1>Тут нема рецептів</h1>
     </div>
     <div v-else class="category">
       <InputsFilter v-model="dataFilter" />
@@ -18,39 +18,22 @@
 </template>
 
 <script setup lang="ts">
-const data = [
-  {
-    title: "Lorem Ipsum",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum industry's..., Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum industry's...",
-    id: "1",
-    image: "/temp1.png",
-  },
-  {
-    title: "Lorem Ipsum",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum industry's...",
-    id: "1",
-    image: "/temp1.png",
-  },
-  {
-    title: "Lorem Ipsum",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum industry's...",
-    id: "1",
-    image: "/temp1.png",
-  },
-  {
-    title: "Lorem Ipsum",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum industry's...",
-    id: "1",
-    image: "/temp1.png",
-  },
-];
+import { useReceiptsStore } from "~/store/receipts";
+import type { IReceipt } from "~/types";
+
+const query = useRoute().query;
+const data = ref<IReceipt[]>([]);
+const store = useReceiptsStore();
 
 const dataSearch = ref("");
-const dataFilter = ref([]);
+const dataFilter = ref(query.data ? [query.data] : []);
+
+onMounted(async () => {
+  if (!store.receipts.length) {
+    await store.getReceipts("receipts");
+  }
+  data.value = store.receipts;
+});
 </script>
 
 <style scoped lang="scss">
