@@ -150,3 +150,13 @@ li {
 .p-inputtext {
   border: none !important;
 }
+
+.p-dataview-content,
+.p-paginator {
+  background-color: transparent !important;
+}
+
+.p-paginator-page {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 16px;
+}
