@@ -1,9 +1,17 @@
 <template>
+  <div v-if="loading">
+    <LayoutLoader />
+  </div>
   <div>
     <slot />
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const nuxtApp = useNuxtApp();
+const loading = ref(true);
 
-<style scoped></style>
+nuxtApp.hook("page:finish", () => {
+  loading.value = false;
+});
+</script>

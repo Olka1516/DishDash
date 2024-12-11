@@ -14,9 +14,7 @@
         </div>
       </template>
       <template #loading>
-        <div>
-          <h3>Load</h3>
-        </div>
+        <LayoutLoader />
       </template>
       <template #empty>
         <div>
