@@ -29,7 +29,14 @@ export default defineNuxtConfig({
   css: ["primeicons/primeicons.css"],
   primevue: {
     components: {
-      include: ["Editor"],
+      include: [
+        "Editor",
+        "Password",
+        "FloatLabel",
+        "InputText",
+        "IconField",
+        "InputIcon",
+      ],
     },
     usePrimeVue: true,
     options: {

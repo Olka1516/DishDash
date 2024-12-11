@@ -17,6 +17,7 @@
 
   :deep(p:nth-of-type(1)) {
     position: relative;
+    font-size: 0;
     grid-row: 1 / span 3;
   }
 
@@ -52,5 +53,22 @@
     position: absolute;
     left: 0;
     color: #000;
+  }
+
+  a {
+    width: 14px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    border-radius: 100%;
+    top: 12px;
+    right: 12px;
+  }
+
+  .detailed-edit {
+    width: 24px;
+    height: 24px;
   }
 }

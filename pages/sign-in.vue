@@ -29,7 +29,6 @@ import {
 } from "firebase/auth";
 import { useAuthStore } from "~/store/auth";
 
-
 const { authenticateUser } = useAuthStore();
 
 definePageMeta({

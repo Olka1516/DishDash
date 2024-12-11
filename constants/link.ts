@@ -2,8 +2,9 @@ export const LINK_TEMPLATES = {
   HOME: "/",
   SIGN_IN: "/sign-in",
   ADMIN: "/admin",
+  ADD_RECEIPT: `/add-receipt`,
+  FORM: `/form`,
+  EDIT: (id: string, query: string) => `/edit/${id}?data=${query}`,
   CATEGORY: (query?: string) => `/category?data=${query}`,
-  ADD_RECEIPT: (query: string) => `/add-receipt?data=${query}`,
   DETAILED: (id: string, query: string) => `/detailed/${id}?data=${query}`,
-  EDIT: (id: string) => `/edit/${id}`,
 };
