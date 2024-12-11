@@ -10,6 +10,7 @@
 @import "./components/inputs/filter";
 @import "./components/errors/baseError";
 @import "./components/admin/table";
+@import "./components/loader/loader";
 @import "./themes";
 @import "./general/container";
 @import "./buttons/lightButton";
@@ -91,4 +92,8 @@
 
 @mixin admin-table {
   @include admin-table-container;
+}
+
+@mixin loader {
+  @include loader-container;
 }
