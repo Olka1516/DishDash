@@ -8,14 +8,20 @@
       <div v-if="!data.length" class="category-empty">
         <h1>Тут нема рецептів</h1>
       </div>
-      <div class="category" v-else>
-        <DetailedReceiptCard
-          v-for="item in data"
-          :title="item.title"
-          :description="item.description"
-          :id="item.id"
-          :image="item.image"
-        />
+      <div v-else>
+        <DataView :value="data" :layout="'grid'" paginator :rows="4">
+          <template #grid="slotProps">
+            <div class="category">
+              <DetailedReceiptCard
+                v-for="item in slotProps.items"
+                :title="item.title"
+                :description="item.description"
+                :id="item.id"
+                :image="item.image"
+              />
+            </div>
+          </template>
+        </DataView>
       </div>
     </div>
   </div>
@@ -25,6 +31,7 @@
 import { useReceiptsStore } from "~/store/receipts";
 import type { IReceipt } from "~/types";
 
+const layout = ref("grid");
 const query = useRoute().query;
 const data = ref<IReceipt[]>([]);
 const store = useReceiptsStore();
