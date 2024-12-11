@@ -8,14 +8,14 @@ export const useAuthStore = defineStore("auth", {
 
   actions: {
     authenticateUser() {
-      const token = useCookie("token");
-      token.value = "true";
+      // const token = useCookie("token");
+      // token.value = "true";
       this.authenticated = true;
     },
     logUserOut() {
-      const token = useCookie("token");
+      // const token = useCookie("token");
       this.authenticated = false;
-      token.value = null;
+      // token.value = null;
     },
   },
 });

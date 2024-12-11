@@ -1,8 +1,8 @@
 import { getAuth } from "firebase/auth";
 import { getFirestore, collection } from "firebase/firestore";
 
-export default defineNuxtPlugin((nuxtApp) => {
-  const db = getFirestore(nuxtApp.$firebaseApp);
+export default defineNuxtPlugin(() => {
+  const db = getFirestore();
   const auth = getAuth();
   const receiptsRef = collection(db, "receipts");
   const requestsRef = collection(db, "requests");
