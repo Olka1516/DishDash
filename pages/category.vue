@@ -30,7 +30,7 @@ const data = ref<IReceipt[]>([]);
 const store = useReceiptsStore();
 
 const dataSearch = ref("");
-const dataFilter = ref(query.data ? [query.data] : []);
+const dataFilter = ref<string[]>(query.data ? ([query.data] as string[]) : []);
 
 const getFilteredReceipts = async () => {
   const newData = await store.getReceiptsByFilters(

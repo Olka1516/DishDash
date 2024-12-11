@@ -1,11 +1,21 @@
 <template>
   <div class="container">
+    <NuxtLink
+      v-if="authenticated"
+      :to="LINK_TEMPLATES.EDIT(data.id, route.query.data as string)"
+    >
+      <img class="detailed-edit" src="/icons/edit.svg" alt="" />
+    </NuxtLink>
     <div v-html="data.page" class="detailed-title"></div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { doc, getDoc } from "firebase/firestore";
+import { LINK_TEMPLATES } from "~/constants";
+import { useAuthStore } from "~/store/auth";
+
+const { authenticated } = storeToRefs(useAuthStore());
 
 definePageMeta({
   layout: false,

@@ -9,13 +9,13 @@
 import { useReceiptsStore } from "~/store/receipts";
 
 const value = ref(
-  '<p>Img:&nbsp</p><p>Title:&nbsp</p><p>Ingredients:</p><ol><li data-list="ordered"><span class="ql-ui" contenteditable="false"></span><br></li></ol><p>Details:&nbsp</p>'
+  '<p>Img:&nbsp</p><p>Title:</p><p>Ingredients: </p><ol><li data-list="ordered"><span class="ql-ui" contenteditable="false"></span><br></li></ol><p>Details:</p>'
 );
-
 const store = useReceiptsStore();
+
 const submit = async () => {
   try {
-    await store.addOrUpdateReceipts(value.value, "receipts");
+    await store.addOrUpdateReceipts(value.value, "requests");
     console.log("Документ додано");
     navigateTo("/category");
   } catch (error) {

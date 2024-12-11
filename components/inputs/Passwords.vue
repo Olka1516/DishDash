@@ -2,7 +2,7 @@
   <FloatLabel variant="on">
     <Password
       v-model="userPassword"
-      inputId="on_label"
+      inputId="on_label_password"
       @input="
         handleInput($event);
         props.v.$touch();
@@ -11,7 +11,7 @@
       toggleMask
       :feedback="false"
     />
-    <label for="on_label">Password</label>
+    <label for="on_label_password">Password</label>
   </FloatLabel>
 </template>
 

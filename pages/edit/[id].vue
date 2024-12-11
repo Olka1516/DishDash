@@ -8,20 +8,31 @@
 <script setup lang="ts">
 import { useReceiptsStore } from "~/store/receipts";
 
-const value = ref(
-  '<p>Img:&nbsp</p><p>Title:&nbsp</p><p>Ingredients:</p><ol><li data-list="ordered"><span class="ql-ui" contenteditable="false"></span><br></li></ol><p>Details:&nbsp</p>'
-);
+const value = ref("");
+const route = useRoute();
 
 const store = useReceiptsStore();
 const submit = async () => {
   try {
-    await store.addOrUpdateReceipts(value.value, "receipts");
+    await store.addOrUpdateReceipts(
+      value.value,
+      route.query.data as string,
+      route.params.id as string
+    );
     console.log("Документ додано");
-    navigateTo("/category");
+    navigateTo(`/detailed/${route.params.id}?data=${route.query.data}`);
   } catch (error) {
     console.error("Помилка додавання документа:", error);
   }
 };
+
+onMounted(async () => {
+  const data = await store.getReceiptById(
+    route.query.data as string,
+    route.params.id as string
+  );
+  if (data) value.value = data.page;
+});
 </script>
 
 <style scoped lang="scss">

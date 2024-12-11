@@ -38,7 +38,7 @@
   .card-image {
     width: 450px;
     height: 200px;
-    object-fit: contain;
+    object-fit: cover;
     border-radius: 5px;
     @media screen and (max-width: 540px) {
       max-width: 500px;

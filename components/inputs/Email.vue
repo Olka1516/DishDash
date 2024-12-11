@@ -2,7 +2,7 @@
   <IconField>
     <FloatLabel variant="on">
       <InputText
-        id="on_label"
+        id="on_label_email"
         v-model="userName"
         name="email"
         @input="
@@ -11,7 +11,7 @@
         "
         :invalid="isNameInvalid()"
       />
-      <label for="on_label">Email</label>
+      <label for="on_label_email">Email</label>
     </FloatLabel>
     <InputIcon class="pi pi-user" />
   </IconField>

@@ -141,3 +141,12 @@ li {
 .p-floatlabel:has(input.p-filled) label {
   font-size: 20px !important;
 }
+
+.p-floatlabel label {
+  color: #000 !important;
+  left: 10px !important;
+}
+
+.p-inputtext {
+  border: none !important;
+}

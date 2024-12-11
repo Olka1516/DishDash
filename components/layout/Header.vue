@@ -6,14 +6,8 @@
 
     <div class="navs">
       <NuxtLink :to="LINK_TEMPLATES.CATEGORY('')">Category</NuxtLink>
-      <NuxtLink
-        v-if="!authenticated"
-        :to="LINK_TEMPLATES.ADD_RECEIPT('requests')"
-        >Form</NuxtLink
-      >
-      <NuxtLink v-else :to="LINK_TEMPLATES.ADD_RECEIPT('receipts')"
-        >Add receipt</NuxtLink
-      >
+      <NuxtLink v-if="!authenticated" :to="LINK_TEMPLATES.FORM">Form</NuxtLink>
+      <NuxtLink v-else :to="LINK_TEMPLATES.ADD_RECEIPT">Add receipt</NuxtLink>
       <NuxtLink v-if="!authenticated" :to="LINK_TEMPLATES.SIGN_IN"
         >Sign in</NuxtLink
       >

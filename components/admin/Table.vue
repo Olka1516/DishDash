@@ -58,10 +58,10 @@ const loading = ref(true);
 const products = ref<IReceipt[]>([]);
 
 onMounted(async () => {
-  if (!store.receipts.length) {
+  if (!store.requests.length) {
     await store.getReceipts("requests");
   }
-  products.value = store.receipts;
+  products.value = store.requests;
   loading.value = false;
 });
 </script>
