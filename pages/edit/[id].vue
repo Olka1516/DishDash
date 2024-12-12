@@ -20,7 +20,7 @@ const submit = async () => {
       route.params.id as string
     );
     console.log("Документ додано");
-    navigateTo(`/detailed/${route.params.id}?data=${route.query.data}`);
+    await navigateTo(`/detailed/${route.params.id}?data=${route.query.data}`);
   } catch (error) {
     console.error("Помилка додавання документа:", error);
   }

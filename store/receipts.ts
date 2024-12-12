@@ -4,9 +4,7 @@ import {
   doc,
   getDoc,
   getDocs,
-  query,
   updateDoc,
-  where,
 } from "firebase/firestore";
 import { defineStore } from "pinia";
 import type { IReceipt } from "~/types";
@@ -50,22 +48,25 @@ export const useReceiptsStore = defineStore("receipt", {
     },
 
     async getReceiptsByFilters(dataSearch: string, dataFilter: string[]) {
-      const { $receiptsRef } = useNuxtApp();
-      const typeQuery = dataFilter.length
-        ? query($receiptsRef, where("type", "array-contains-any", dataFilter))
-        : $receiptsRef;
+      if (!dataFilter.length && !dataSearch) return this.receipts;
 
-      const typeDocs = await getDocs(typeQuery);
-      let receipts = typeDocs.docs.map((doc) => doc.data() as IReceipt);
+      let filteredReceipts = this.receipts;
+      if (dataFilter.length) {
+        filteredReceipts = this.receipts.filter((receipt) =>
+          receipt.ingredients.some((ingredient) =>
+            dataFilter.includes(ingredient.name)
+          )
+        );
+      }
 
       if (dataSearch) {
         const titleLower = dataSearch.toLowerCase();
-        receipts = receipts.filter((receipt) =>
+        filteredReceipts = filteredReceipts.filter((receipt) =>
           receipt.title.toLowerCase().includes(titleLower)
         );
       }
 
-      return receipts;
+      return filteredReceipts;
     },
 
     parseHtmlData(htmlData: string) {
@@ -103,7 +104,12 @@ export const useReceiptsStore = defineStore("receipt", {
       const dataRef = query === "receipts" ? $receiptsRef : $requestsRef;
 
       if (id) {
-        await updateDoc(doc($db, query, id), data);
+        if (query === "receipts") {
+          await updateDoc(doc($db, query, id), data);
+        } else {
+          const docRef = await addDoc($receiptsRef, data);
+          await updateDoc(docRef, { id: docRef.id });
+        }
       } else {
         const docRef = await addDoc(dataRef, data);
         await updateDoc(docRef, { id: docRef.id });
