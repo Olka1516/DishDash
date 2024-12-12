@@ -57,7 +57,7 @@ const signIn = async () => {
     await setPersistence($auth, browserSessionPersistence);
     await signInWithEmailAndPassword($auth, user.email, user.password);
     authenticateUser();
-    navigateTo("/admin");
+    await navigateTo("/admin");
   } catch (err: any) {
     error.value = err.message;
   }

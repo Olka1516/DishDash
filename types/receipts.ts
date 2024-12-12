@@ -4,5 +4,5 @@ export interface IReceipt {
   id: string;
   image: string;
   page: string;
-  ingredients: string[];
+  ingredients: { name: string; count: string }[];
 }

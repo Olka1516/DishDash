@@ -17,7 +17,7 @@ const submit = async () => {
   try {
     await store.addOrUpdateReceipts(value.value, "receipts");
     console.log("Документ додано");
-    navigateTo("/category");
+    await navigateTo("/category");
   } catch (error) {
     console.error("Помилка додавання документа:", error);
   }

@@ -5,6 +5,7 @@
 
   .detailed-title {
     display: grid;
+    gap: 24px;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 0.5fr 0.2fr 0.5fr;
     @media screen and (max-width: 1024px) {
@@ -55,7 +56,8 @@
     color: #000;
   }
 
-  a {
+  a,
+  button {
     width: 14px;
     height: 44px;
     display: flex;
@@ -65,6 +67,16 @@
     border-radius: 100%;
     top: 12px;
     right: 12px;
+  }
+
+  button {
+    right: 72px;
+  }
+
+  .detailed-exit {
+    background-color: transparent;
+    top: 0;
+    left: 0;
   }
 
   .detailed-edit {

@@ -18,7 +18,7 @@ const { logUserOut } = useAuthStore();
 const logOut = async () => {
   await signOut($auth);
   logUserOut();
-  navigateTo("/");
+  await navigateTo("/");
 };
 </script>
 
