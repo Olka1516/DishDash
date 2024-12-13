@@ -36,6 +36,7 @@ export default defineNuxtConfig({
         "InputText",
         "IconField",
         "InputIcon",
+        "Toast",
       ],
     },
     usePrimeVue: true,

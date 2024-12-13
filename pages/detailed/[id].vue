@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <Toast />
     <NuxtLink class="detailed-exit" :to="LINK_TEMPLATES.CATEGORY('')">
       <img class="detailed-edit" src="/icons/exit.svg" alt="" />
     </NuxtLink>
@@ -20,6 +21,7 @@
 import { deleteDoc, doc, getDoc } from "firebase/firestore";
 import { LINK_TEMPLATES } from "~/constants";
 import { useAuthStore } from "~/store/auth";
+import { useToastsStore } from "~/store/toasts";
 import type { IReceipt } from "~/types";
 
 const { authenticated } = storeToRefs(useAuthStore());
@@ -46,8 +48,10 @@ const documentId = Array.isArray(route.params.id)
 const query = route.query.data as string;
 
 const deleteReceipt = async () => {
+  const { showSuccess } = useToastsStore();
   await deleteDoc(doc($db, query, documentId));
   await navigateTo("/category");
+  showSuccess("Receipt successfully deleted");
 };
 
 onMounted(async () => {

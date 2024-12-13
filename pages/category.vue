@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <Toast />
     <div>
       <div class="category">
         <InputsFilter v-model="dataFilter" />

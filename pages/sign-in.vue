@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <Toast />
     <div class="auth-form">
       <h1>Sign in</h1>
       <div class="field">
@@ -28,6 +29,8 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { useAuthStore } from "~/store/auth";
+import { useToastsStore } from "~/store/toasts";
+import { ErrorMessageEnum } from "~/types";
 
 const { authenticateUser } = useAuthStore();
 
@@ -53,12 +56,20 @@ const signIn = async () => {
   if (!isFormCorrect) {
     return;
   }
+  //Function addDoc() called with invalid data. Unsupported field value: undefined (found in field image in document receipts/pNhY19ZzwbAoSLKAygOu)
+  const { showSuccess, showError } = useToastsStore();
   try {
     await setPersistence($auth, browserSessionPersistence);
     await signInWithEmailAndPassword($auth, user.email, user.password);
     authenticateUser();
     await navigateTo("/admin");
+    showSuccess("Sign in successfully");
   } catch (err: any) {
+    const message =
+      err.message === ErrorMessageEnum.InvalidCradential
+        ? "Invalid data"
+        : err.message;
+    showError(message);
     error.value = err.message;
   }
 };

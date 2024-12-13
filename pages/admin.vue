@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <Toast />
     <div class="admin-header">
       <h1>Hello, admin!</h1>
       <button @click="logOut">Log out</button>
