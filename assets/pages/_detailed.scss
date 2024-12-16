@@ -1,6 +1,9 @@
 @mixin detailed-container {
   .container {
     padding-block: 40px;
+    @media screen and (max-width: 900px) {
+      padding-top: 80px;
+    }
   }
 
   .detailed-title {
@@ -67,10 +70,16 @@
     border-radius: 100%;
     top: 12px;
     right: 12px;
+    @media screen and (max-width: 540px) {
+      right: 8px;
+    }
   }
 
   button {
     right: 72px;
+    @media screen and (max-width: 540px) {
+      right: 68px;
+    }
   }
 
   .detailed-exit {
