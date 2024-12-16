@@ -1,7 +1,7 @@
 <template>
   <header class="container">
     <NuxtLink class="nav-home" :to="LINK_TEMPLATES.HOME">
-      <img src="/logo.png" alt="" />
+      <img class="logo" src="/logo.png" alt="" />
     </NuxtLink>
 
     <div class="navs">
@@ -13,7 +13,17 @@
       >
       <NuxtLink v-else :to="LINK_TEMPLATES.ADMIN">Admin</NuxtLink>
     </div>
+    <button @click="openBurger" class="burger-btn">
+      <img class="burger-icon" src="/icons/burgerMenu.svg" alt="" />
+    </button>
   </header>
+  <div class="burger-menu">
+    <LayoutBurger
+      :authenticated="authenticated"
+      :isClosed="isBurgerClosed"
+      @update:isClosed="(val: boolean) => isBurgerClosed = val"
+    />
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -21,6 +31,13 @@ import { LINK_TEMPLATES } from "~/constants";
 import { useAuthStore } from "~/store/auth";
 
 const { authenticated } = storeToRefs(useAuthStore());
+const isBurgerClosed = ref(true);
+
+const openBurger = () => {
+  isBurgerClosed.value = false;
+  document.body.style.overflow = "hidden";
+  document.body.style.maxHeight = "100vh";
+};
 </script>
 
 <style scoped lang="scss">

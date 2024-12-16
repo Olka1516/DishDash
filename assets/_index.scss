@@ -1,5 +1,6 @@
 @import "./components/layout/header";
 @import "./components/layout/footer";
+@import "./components/layout/burger";
 @import "./components/landing/main";
 @import "./components/landing/info";
 @import "./components/landing/receipt";
@@ -96,4 +97,8 @@
 
 @mixin loader {
   @include loader-container;
+}
+
+@mixin burger {
+  @include burger-container;
 }

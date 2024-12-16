@@ -7,13 +7,28 @@
     background-color: $pale_yellow;
   }
 
-  img {
+  .logo {
     height: 80px;
+  }
+
+  .burger-btn {
+    display: none;
+    @media screen and (max-width: 560px) {
+      display: flex;
+      background-color: transparent;
+    }
+  }
+
+  .burger-icon {
+    height: 30px;
   }
 
   .navs {
     display: flex;
     gap: 20px;
+    @media screen and (max-width: 560px) {
+      display: none;
+    }
   }
 
   .nav-home {
