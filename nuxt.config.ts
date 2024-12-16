@@ -26,7 +26,7 @@ export default defineNuxtConfig({
   },
   modules: ["@primevue/nuxt-module", "nuxt-vuefire", "@pinia/nuxt"],
 
-  css: ["primeicons/primeicons.css"],
+  css: ["primeicons/primeicons.css", "@/assets/_reset.scss"],
   primevue: {
     components: {
       include: [
